@@ -67,22 +67,23 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-dark-500 py-12 px-4">
-      <div className="max-w-md w-full space-y-8 bg-dark-400 border border-primary-800 p-8 rounded-lg shadow-lg">
+    <div className="min-h-screen flex items-center justify-center py-12 px-4">
+      <div className="max-w-md w-full space-y-8 card p-10">
         <div>
-          <h2 className="text-center text-3xl font-extrabold text-primary-400">
+          <h2 className="text-center text-3xl font-bold text-sage-dark mb-2">
             Create your account
           </h2>
+          <p className="text-center text-sage-medium">Join Hire Nearby today</p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+            <div className="bg-red-50 border-2 border-red-200 text-red-700 px-4 py-3 rounded-xl font-medium">
               {error}
             </div>
           )}
           <div className="space-y-4">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-primary-300">
+              <label htmlFor="name" className="block text-sm font-semibold text-sage-dark mb-2">
                 Name
               </label>
               <input
@@ -92,11 +93,11 @@ export default function Register() {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 bg-dark-500 border border-primary-700 rounded-md text-primary-200 placeholder-primary-500 focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+                className="input-field"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-primary-300">
+              <label htmlFor="email" className="block text-sm font-semibold text-sage-dark mb-2">
                 Email address
               </label>
               <input
@@ -106,11 +107,11 @@ export default function Register() {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 bg-dark-500 border border-primary-700 rounded-md text-primary-200 placeholder-primary-500 focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+                className="input-field"
               />
             </div>
             <div>
-              <label htmlFor="role" className="block text-sm font-medium text-primary-300">
+              <label htmlFor="role" className="block text-sm font-semibold text-sage-dark mb-2">
                 I want to
               </label>
               <select
@@ -119,7 +120,7 @@ export default function Register() {
                 required
                 value={formData.role}
                 onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 bg-dark-500 border border-primary-700 rounded-md text-primary-200 focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+                className="input-field"
               >
                 <option value="requester">Post jobs (Requester)</option>
                 <option value="provider">Find work (Provider)</option>
@@ -190,16 +191,16 @@ export default function Register() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 transition"
+              className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? 'Creating account...' : 'Sign up'}
             </button>
           </div>
 
-          <div className="text-center">
-            <p className="text-sm text-primary-300">
+          <div className="text-center pt-4">
+            <p className="text-sm text-sage-medium">
               Already have an account?{' '}
-              <Link to="/login" className="font-medium text-primary-400 hover:text-primary-300 transition">
+              <Link to="/login" className="font-semibold text-sage-dark hover:text-sage-medium transition-colors duration-200">
                 Sign in
               </Link>
             </p>

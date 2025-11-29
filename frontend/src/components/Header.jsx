@@ -11,40 +11,40 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-dark-500 border-b border-primary-800 shadow-lg">
-      <div className="container mx-auto px-4 py-4">
+    <header className="bg-white/80 backdrop-blur-md border-b border-sage-light shadow-soft sticky top-0 z-50">
+      <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-2xl font-bold text-primary-400">
+          <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-sage-medium to-sage-dark bg-clip-text text-transparent hover:scale-105 transition-transform duration-200">
             🏠 Hire Nearby
           </Link>
-          <nav className="flex items-center gap-4">
+          <nav className="flex items-center gap-6">
             {user ? (
               <>
-                <Link to="/browse" className="text-primary-200 hover:text-primary-400 transition">Browse Jobs</Link>
+                <Link to="/browse" className="text-sage-dark font-medium hover:text-sage-medium transition-colors duration-200">Browse Jobs</Link>
                 {user.role === 'requester' && (
-                  <Link to="/post-job" className="text-primary-200 hover:text-primary-400 transition">Post Job</Link>
+                  <Link to="/post-job" className="text-sage-dark font-medium hover:text-sage-medium transition-colors duration-200">Post Job</Link>
                 )}
                 {user.role === 'requester' && (
-                  <Link to="/dashboard/requester" className="text-primary-200 hover:text-primary-400 transition">Dashboard</Link>
+                  <Link to="/dashboard/requester" className="text-sage-dark font-medium hover:text-sage-medium transition-colors duration-200">Dashboard</Link>
                 )}
                 {user.role === 'provider' && (
-                  <Link to="/dashboard/provider" className="text-primary-200 hover:text-primary-400 transition">Dashboard</Link>
+                  <Link to="/dashboard/provider" className="text-sage-dark font-medium hover:text-sage-medium transition-colors duration-200">Dashboard</Link>
                 )}
                 {user.role === 'admin' && (
-                  <Link to="/dashboard/admin" className="text-primary-200 hover:text-primary-400 transition">Admin</Link>
+                  <Link to="/dashboard/admin" className="text-sage-dark font-medium hover:text-sage-medium transition-colors duration-200">Admin</Link>
                 )}
-                <Link to="/profile" className="text-primary-200 hover:text-primary-400 transition">Profile</Link>
-                <button onClick={handleLogout} className="text-primary-200 hover:text-primary-400 transition">
+                <Link to="/profile" className="text-sage-dark font-medium hover:text-sage-medium transition-colors duration-200">Profile</Link>
+                <button onClick={handleLogout} className="text-sage-dark font-medium hover:text-sage-medium transition-colors duration-200">
                   Logout
                 </button>
               </>
             ) : (
               <>
-                <Link to="/browse" className="text-primary-200 hover:text-primary-400 transition">Browse Jobs</Link>
-                <Link to="/login" className="text-primary-200 hover:text-primary-400 transition">Login</Link>
+                <Link to="/browse" className="text-sage-dark font-medium hover:text-sage-medium transition-colors duration-200">Browse Jobs</Link>
+                <Link to="/login" className="text-sage-dark font-medium hover:text-sage-medium transition-colors duration-200">Login</Link>
                 <Link
                   to="/register"
-                  className="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-400 transition font-medium"
+                  className="btn-primary text-sm"
                 >
                   Sign Up
                 </Link>

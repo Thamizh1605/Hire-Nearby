@@ -71,19 +71,19 @@ export default function BrowseJobs() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6 text-primary-400">Browse Jobs</h1>
+    <div className="container mx-auto px-6 py-10">
+      <h1 className="section-title">Browse Jobs</h1>
 
-      <div className="bg-dark-400 border border-primary-800 rounded-lg shadow-md p-6 mb-6">
+      <div className="card p-8 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div>
-            <label className="block text-sm font-medium text-primary-300 mb-1">
+            <label className="block text-sm font-semibold text-sage-dark mb-2">
               Category
             </label>
             <select
               value={filters.category}
               onChange={(e) => handleFilterChange('category', e.target.value)}
-              className="w-full px-3 py-2 bg-dark-500 border border-primary-700 rounded-md text-primary-200 focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+              className="input-field"
             >
               <option value="">All Categories</option>
               <option value="cleaning">Cleaning</option>
@@ -93,7 +93,7 @@ export default function BrowseJobs() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-semibold text-sage-dark mb-2">
               City
             </label>
             <input
@@ -101,13 +101,13 @@ export default function BrowseJobs() {
               value={filters.city}
               onChange={(e) => handleFilterChange('city', e.target.value)}
               placeholder="Enter city"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              className="input-field"
             />
           </div>
 
           {userLocation && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-semibold text-sage-dark mb-2">
                 Radius (km)
               </label>
               <input
@@ -116,19 +116,19 @@ export default function BrowseJobs() {
                 onChange={(e) => handleFilterChange('radiusKm', e.target.value)}
                 min="1"
                 max="100"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                className="input-field"
               />
             </div>
           )}
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-semibold text-sage-dark mb-2">
               Sort By
             </label>
             <select
               value={filters.sort}
               onChange={(e) => handleFilterChange('sort', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              className="input-field"
             >
               <option value="distance">Distance</option>
               <option value="rating">Rating</option>
@@ -138,7 +138,7 @@ export default function BrowseJobs() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-semibold text-sage-dark mb-2">
               Max Price ($/hr)
             </label>
             <input
@@ -147,29 +147,29 @@ export default function BrowseJobs() {
               onChange={(e) => handleFilterChange('maxPrice', e.target.value)}
               placeholder="No limit"
               min="0"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              className="input-field"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-semibold text-sage-dark mb-2">
               Date
             </label>
             <input
               type="date"
               value={filters.date}
               onChange={(e) => handleFilterChange('date', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              className="input-field"
             />
           </div>
         </div>
       </div>
 
       {loading ? (
-        <div className="text-center py-12 text-primary-300">Loading jobs...</div>
+        <div className="text-center py-12 text-sage-medium font-medium">Loading jobs...</div>
       ) : jobs.length === 0 ? (
-        <div className="text-center py-12 text-primary-500">
-          No jobs found. Try adjusting your filters.
+        <div className="card p-12 text-center">
+          <p className="text-sage-medium text-lg">No jobs found. Try adjusting your filters.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

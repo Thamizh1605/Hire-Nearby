@@ -107,7 +107,7 @@ export default function Chat({ bookingId }) {
   };
 
   return (
-    <div className="flex flex-col h-96 bg-dark-400 border border-primary-800 rounded-lg shadow-md">
+    <div className="flex flex-col h-96 card">
       <div className="flex-1 overflow-y-auto p-4 space-y-3">
         {messages.map((message) => (
           <div
@@ -115,10 +115,10 @@ export default function Chat({ bookingId }) {
             className={`flex ${message.senderId._id === user.id ? 'justify-end' : 'justify-start'}`}
           >
             <div
-              className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
+              className={`max-w-xs lg:max-w-md px-4 py-3 rounded-xl shadow-soft ${
                 message.senderId._id === user.id
-                  ? 'bg-primary-600 text-white'
-                  : 'bg-dark-500 text-primary-200 border border-primary-700'
+                  ? 'bg-gradient-to-r from-sage-medium to-sage-dark text-white'
+                  : 'bg-cream-light text-sage-dark border border-sage-light'
               }`}
             >
               <div className="text-sm font-semibold mb-1">
@@ -133,14 +133,14 @@ export default function Chat({ bookingId }) {
           </div>
         ))}
         {typing && typingUser && (
-          <div className="text-sm text-primary-500 italic">
+          <div className="text-sm text-sage-medium italic">
             {typingUser} is typing...
           </div>
         )}
         <div ref={messagesEndRef} />
       </div>
-      <form onSubmit={sendMessage} className="border-t border-primary-800 p-4">
-        <div className="flex gap-2">
+      <form onSubmit={sendMessage} className="border-t border-sage-light p-4 bg-cream-light/50">
+        <div className="flex gap-3">
           <input
             type="text"
             value={newMessage}
@@ -149,11 +149,11 @@ export default function Chat({ bookingId }) {
               handleTyping();
             }}
             placeholder="Type a message..."
-            className="flex-1 px-4 py-2 bg-dark-500 border border-primary-700 rounded-lg text-primary-200 placeholder-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            className="flex-1 input-field"
           />
           <button
             type="submit"
-            className="px-6 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600"
+            className="btn-primary"
           >
             Send
           </button>

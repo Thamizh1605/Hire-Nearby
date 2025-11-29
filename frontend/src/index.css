@@ -6,14 +6,107 @@
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #0a0e18;
-    color: #e6f0ff;
+    background: linear-gradient(135deg, #f1f3e0 0%, #d2dcb6 100%);
+    min-height: 100vh;
+    color: #2a3329;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   
   code {
     font-family: 'Poppins', monospace;
+  }
+}
+
+@layer components {
+  .card {
+    background-color: white;
+    border-radius: 1rem;
+    border: 1px solid rgba(210, 220, 182, 0.3);
+    box-shadow: 0 2px 15px -3px rgba(119, 136, 115, 0.1), 0 10px 20px -2px rgba(119, 136, 115, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    border-color: rgba(161, 188, 152, 0.5);
+    box-shadow: 0 4px 25px -5px rgba(119, 136, 115, 0.2), 0 10px 30px -5px rgba(119, 136, 115, 0.15);
+  }
+  
+  .btn-primary {
+    background: linear-gradient(to right, #a1bc98, #778873);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    box-shadow: 0 2px 15px -3px rgba(119, 136, 115, 0.1), 0 10px 20px -2px rgba(119, 136, 115, 0.1);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    box-shadow: 0 4px 25px -5px rgba(119, 136, 115, 0.2), 0 10px 30px -5px rgba(119, 136, 115, 0.15);
+    transform: scale(1.05);
+  }
+  
+  .btn-primary:active {
+    transform: scale(0.95);
+  }
+  
+  .btn-secondary {
+    background-color: #d2dcb6;
+    color: #778873;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    box-shadow: 0 2px 15px -3px rgba(119, 136, 115, 0.1), 0 10px 20px -2px rgba(119, 136, 115, 0.1);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-secondary:hover {
+    box-shadow: 0 4px 25px -5px rgba(119, 136, 115, 0.2), 0 10px 30px -5px rgba(119, 136, 115, 0.15);
+    transform: scale(1.05);
+  }
+  
+  .btn-secondary:active {
+    transform: scale(0.95);
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #f1f3e0;
+    border: 2px solid #d2dcb6;
+    border-radius: 0.75rem;
+    color: #778873;
+    transition: all 0.2s ease;
+    outline: none;
+  }
+  
+  .input-field::placeholder {
+    color: rgba(161, 188, 152, 0.6);
+  }
+  
+  .input-field:focus {
+    border-color: #a1bc98;
+    box-shadow: 0 0 0 2px rgba(161, 188, 152, 0.2);
+  }
+  
+  .section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #778873;
+    margin-bottom: 1.5rem;
+  }
+  
+  .text-primary {
+    color: #778873;
+  }
+  
+  .text-secondary {
+    color: #a1bc98;
   }
 }
 

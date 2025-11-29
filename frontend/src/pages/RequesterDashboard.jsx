@@ -52,31 +52,39 @@ export default function RequesterDashboard() {
   };
 
   if (loading) {
-    return <div className="container mx-auto px-4 py-8 text-primary-300">Loading...</div>;
+    return <div className="container mx-auto px-6 py-10 text-sage-medium font-medium">Loading...</div>;
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-primary-400">Requester Dashboard</h1>
+    <div className="container mx-auto px-6 py-10">
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="section-title mb-0">Requester Dashboard</h1>
         <Link
           to="/post-job"
-          className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-500 transition"
+          className="btn-primary"
         >
           Post New Job
         </Link>
       </div>
 
-      <div className="flex gap-4 mb-6 border-b">
+      <div className="flex gap-4 mb-8 border-b-2 border-sage-light">
         <button
           onClick={() => setActiveTab('jobs')}
-          className={`px-4 py-2 ${activeTab === 'jobs' ? 'border-b-2 border-primary-600 text-primary-600' : ''}`}
+          className={`px-6 py-3 font-semibold transition-colors duration-200 ${
+            activeTab === 'jobs' 
+              ? 'border-b-4 border-sage-medium text-sage-dark' 
+              : 'text-sage-medium hover:text-sage-dark'
+          }`}
         >
           My Jobs
         </button>
         <button
           onClick={() => setActiveTab('bookings')}
-          className={`px-4 py-2 ${activeTab === 'bookings' ? 'border-b-2 border-primary-600 text-primary-600' : ''}`}
+          className={`px-6 py-3 font-semibold transition-colors duration-200 ${
+            activeTab === 'bookings' 
+              ? 'border-b-4 border-sage-medium text-sage-dark' 
+              : 'text-sage-medium hover:text-sage-dark'
+          }`}
         >
           Bookings
         </button>
@@ -86,23 +94,24 @@ export default function RequesterDashboard() {
         <div>
           <h2 className="text-2xl font-semibold mb-4">My Posted Jobs</h2>
           {jobs.length === 0 ? (
-            <div className="bg-dark-400 border border-primary-800 rounded-lg shadow-md p-8 text-center text-primary-500">
-              No jobs posted yet. <Link to="/post-job" className="text-primary-400 hover:text-primary-300">Post your first job</Link>
+            <div className="card p-12 text-center">
+              <p className="text-sage-medium text-lg mb-4">No jobs posted yet.</p>
+              <Link to="/post-job" className="btn-primary inline-block">Post your first job</Link>
             </div>
           ) : (
-            <div className="space-y-4">
+            <div className="space-y-6">
               {jobs.map((job) => (
-                <div key={job._id} className="bg-dark-400 border border-primary-800 rounded-lg shadow-md p-6">
-                  <div className="flex justify-between items-start mb-3">
+                <div key={job._id} className="card p-6">
+                  <div className="flex justify-between items-start mb-4">
                     <div>
-                      <h3 className="text-xl font-semibold text-primary-300">{job.title}</h3>
-                      <p className="text-primary-400">{job.description}</p>
+                      <h3 className="text-xl font-bold text-sage-dark mb-2">{job.title}</h3>
+                      <p className="text-sage-medium">{job.description}</p>
                     </div>
-                    <span className="px-3 py-1 bg-primary-900 text-primary-300 border border-primary-700 rounded-full text-sm capitalize">
+                    <span className="px-4 py-1.5 bg-sage-light text-sage-dark rounded-full text-xs font-semibold uppercase tracking-wide">
                       {job.status}
                     </span>
                   </div>
-                  <div className="flex gap-4 text-sm text-primary-500 mb-3">
+                  <div className="flex gap-4 text-sm text-sage-medium mb-4">
                     <span>📅 {format(new Date(job.date), 'MMM dd, yyyy')}</span>
                     <span>⏰ {job.startTime}</span>
                     <span>📍 {job.location.city}</span>
@@ -110,7 +119,7 @@ export default function RequesterDashboard() {
                   {job.status === 'open' && (
                     <Link
                       to={`/jobs/${job._id}`}
-                      className="text-primary-600 hover:text-primary-700"
+                      className="text-sage-dark hover:text-sage-medium font-semibold transition-colors duration-200"
                     >
                       View Offers →
                     </Link>
@@ -124,50 +133,50 @@ export default function RequesterDashboard() {
 
       {activeTab === 'bookings' && (
         <div>
-          <h2 className="text-2xl font-semibold mb-4">My Bookings</h2>
+          <h2 className="section-title mb-6">My Bookings</h2>
           {bookings.length === 0 ? (
-            <div className="bg-dark-400 border border-primary-800 rounded-lg shadow-md p-8 text-center text-primary-500">
-              No bookings yet.
+            <div className="card p-12 text-center">
+              <p className="text-sage-medium text-lg">No bookings yet.</p>
             </div>
           ) : (
-            <div className="space-y-4">
+            <div className="space-y-6">
               {bookings.map((booking) => (
-                <div key={booking._id} className="bg-dark-400 border border-primary-800 rounded-lg shadow-md p-6">
-                  <div className="flex justify-between items-start mb-3">
+                <div key={booking._id} className="card p-6">
+                  <div className="flex justify-between items-start mb-4">
                     <div>
-                      <h3 className="text-xl font-semibold text-primary-300">{booking.jobId?.title}</h3>
-                      <p className="text-primary-400">Provider: {booking.providerId?.name}</p>
+                      <h3 className="text-xl font-bold text-sage-dark mb-2">{booking.jobId?.title}</h3>
+                      <p className="text-sage-medium">Provider: {booking.providerId?.name}</p>
                     </div>
                     <div className="text-right">
-                      <span className="px-3 py-1 bg-primary-900 text-primary-300 border border-primary-700 rounded-full text-sm capitalize block mb-2">
+                      <span className="px-4 py-1.5 bg-sage-light text-sage-dark rounded-full text-xs font-semibold uppercase tracking-wide block mb-2">
                         {booking.status}
                       </span>
-                      <span className="px-3 py-1 bg-dark-500 text-primary-300 border border-primary-700 rounded-full text-sm capitalize">
+                      <span className="px-4 py-1.5 bg-cream-light text-sage-dark rounded-full text-xs font-semibold uppercase tracking-wide">
                         {booking.paymentStatus}
                       </span>
                     </div>
                   </div>
-                  <div className="text-sm text-primary-500 mb-3">
+                  <div className="text-sm text-sage-medium mb-4">
                     <span>📅 {format(new Date(booking.startTime), 'MMM dd, yyyy HH:mm')}</span>
                     <span className="ml-4">💰 ${booking.offerId?.hourlyRate}/hr</span>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-3">
                     <Link
                       to={`/bookings/${booking._id}`}
-                      className="bg-primary-600 text-white px-4 py-2 rounded hover:bg-primary-700"
+                      className="btn-secondary text-sm"
                     >
                       View Details
                     </Link>
                     {booking.status === 'completed' && booking.paymentStatus === 'unpaid' && (
                       <button
                         onClick={() => handlePay(booking._id, booking.offerId?.hourlyRate * booking.jobId?.durationHours)}
-                        className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+                        className="btn-primary text-sm"
                       >
                         Pay Now
                       </button>
                     )}
                     {booking.status === 'completed' && booking.paymentStatus === 'unpaid' && (
-                      <p className="text-sm text-primary-500">Waiting for payment</p>
+                      <p className="text-sm text-sage-medium flex items-center">Waiting for payment</p>
                     )}
                   </div>
                 </div>
