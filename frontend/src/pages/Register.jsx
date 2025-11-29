@@ -67,13 +67,13 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4">
-      <div className="max-w-md w-full space-y-8 card p-10">
+    <div className="min-h-screen flex items-center justify-center py-12 px-4 bg-gray-50">
+      <div className="max-w-md w-full space-y-6 card">
         <div>
-          <h2 className="text-center text-3xl font-bold text-sage-dark mb-2">
+          <h2 className="text-center text-2xl font-semibold text-gray-900 mb-1">
             Create your account
           </h2>
-          <p className="text-center text-sage-medium">Join Hire Nearby today</p>
+          <p className="text-center text-sm text-gray-600">Join Hire Nearby today</p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (
@@ -83,7 +83,7 @@ export default function Register() {
           )}
           <div className="space-y-4">
             <div>
-              <label htmlFor="name" className="block text-sm font-semibold text-sage-dark mb-2">
+              <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-1.5">
                 Name
               </label>
               <input
@@ -97,7 +97,7 @@ export default function Register() {
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-sage-dark mb-2">
+              <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1.5">
                 Email address
               </label>
               <input
@@ -111,7 +111,7 @@ export default function Register() {
               />
             </div>
             <div>
-              <label htmlFor="role" className="block text-sm font-semibold text-sage-dark mb-2">
+              <label htmlFor="role" className="block text-sm font-semibold text-gray-700 mb-1.5">
                 I want to
               </label>
               <select
@@ -197,10 +197,10 @@ export default function Register() {
             </button>
           </div>
 
-          <div className="text-center pt-4">
-            <p className="text-sm text-sage-medium">
+          <div className="text-center pt-2">
+            <p className="text-sm text-gray-600">
               Already have an account?{' '}
-              <Link to="/login" className="font-semibold text-sage-dark hover:text-sage-medium transition-colors duration-200">
+              <Link to="/login" className="font-semibold text-sage-dark hover:text-sage-medium transition-colors">
                 Sign in
               </Link>
             </p>

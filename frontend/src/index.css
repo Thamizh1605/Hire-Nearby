@@ -6,9 +6,9 @@
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f1f3e0 0%, #d2dcb6 100%);
+    background: #f7f8f9;
     min-height: 100vh;
-    color: #2a3329;
+    color: #172b4d;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -20,93 +20,110 @@
 
 @layer components {
   .card {
-    background-color: white;
-    border-radius: 1rem;
-    border: 1px solid rgba(210, 220, 182, 0.3);
-    box-shadow: 0 2px 15px -3px rgba(119, 136, 115, 0.1), 0 10px 20px -2px rgba(119, 136, 115, 0.1);
-    transition: all 0.3s ease;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 1.5rem;
   }
   
   .card:hover {
-    border-color: rgba(161, 188, 152, 0.5);
-    box-shadow: 0 4px 25px -5px rgba(119, 136, 115, 0.2), 0 10px 30px -5px rgba(119, 136, 115, 0.15);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transform: translateY(-2px);
   }
   
   .btn-primary {
     background: linear-gradient(to right, #a1bc98, #778873);
     color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.75rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 4px;
     font-weight: 600;
-    box-shadow: 0 2px 15px -3px rgba(119, 136, 115, 0.1), 0 10px 20px -2px rgba(119, 136, 115, 0.1);
-    transition: all 0.3s ease;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     border: none;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .btn-primary:hover {
-    box-shadow: 0 4px 25px -5px rgba(119, 136, 115, 0.2), 0 10px 30px -5px rgba(119, 136, 115, 0.15);
-    transform: scale(1.05);
+    background: linear-gradient(to right, #8fa885, #6a7a66);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
   }
   
   .btn-primary:active {
-    transform: scale(0.95);
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   }
   
   .btn-secondary {
-    background-color: #d2dcb6;
+    background-color: #ffffff;
     color: #778873;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.75rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 4px;
     font-weight: 600;
-    box-shadow: 0 2px 15px -3px rgba(119, 136, 115, 0.1), 0 10px 20px -2px rgba(119, 136, 115, 0.1);
-    transition: all 0.3s ease;
-    border: none;
+    font-size: 0.875rem;
+    border: 1px solid #d2dcb6;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .btn-secondary:hover {
-    box-shadow: 0 4px 25px -5px rgba(119, 136, 115, 0.2), 0 10px 30px -5px rgba(119, 136, 115, 0.15);
-    transform: scale(1.05);
+    background-color: #f7f8f9;
+    border-color: #a1bc98;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
   }
   
   .btn-secondary:active {
-    transform: scale(0.95);
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
   }
   
   .input-field {
     width: 100%;
-    padding: 0.75rem 1rem;
-    background-color: #f1f3e0;
-    border: 2px solid #d2dcb6;
-    border-radius: 0.75rem;
-    color: #778873;
-    transition: all 0.2s ease;
+    padding: 0.75rem;
+    background-color: #ffffff;
+    border: 2px solid #dfe1e6;
+    border-radius: 4px;
+    color: #172b4d;
+    font-size: 0.875rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     outline: none;
   }
   
   .input-field::placeholder {
-    color: rgba(161, 188, 152, 0.6);
+    color: #6b778c;
   }
   
   .input-field:focus {
     border-color: #a1bc98;
     box-shadow: 0 0 0 2px rgba(161, 188, 152, 0.2);
+    background-color: #ffffff;
   }
   
   .section-title {
-    font-size: 1.875rem;
-    font-weight: 700;
-    color: #778873;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #172b4d;
     margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
   }
   
   .text-primary {
-    color: #778873;
+    color: #172b4d;
   }
   
   .text-secondary {
-    color: #a1bc98;
+    color: #6b778c;
   }
 }
 

@@ -71,13 +71,13 @@ export default function BrowseJobs() {
   };
 
   return (
-    <div className="container mx-auto px-6 py-10">
-      <h1 className="section-title">Browse Jobs</h1>
+    <div className="container mx-auto px-6 py-8 bg-gray-50 min-h-screen">
+      <h1 className="text-2xl font-semibold mb-6 text-gray-900">Browse Jobs</h1>
 
-      <div className="card p-8 mb-8">
+      <div className="card mb-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div>
-            <label className="block text-sm font-semibold text-sage-dark mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-1.5">
               Category
             </label>
             <select
@@ -93,7 +93,7 @@ export default function BrowseJobs() {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-sage-dark mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-1.5">
               City
             </label>
             <input
@@ -107,7 +107,7 @@ export default function BrowseJobs() {
 
           {userLocation && (
             <div>
-              <label className="block text-sm font-semibold text-sage-dark mb-2">
+              <label className="block text-sm font-semibold text-gray-700 mb-1.5">
                 Radius (km)
               </label>
               <input
@@ -122,7 +122,7 @@ export default function BrowseJobs() {
           )}
 
           <div>
-            <label className="block text-sm font-semibold text-sage-dark mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-1.5">
               Sort By
             </label>
             <select
@@ -138,7 +138,7 @@ export default function BrowseJobs() {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-sage-dark mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-1.5">
               Max Price ($/hr)
             </label>
             <input
@@ -152,7 +152,7 @@ export default function BrowseJobs() {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-sage-dark mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-1.5">
               Date
             </label>
             <input
@@ -166,13 +166,13 @@ export default function BrowseJobs() {
       </div>
 
       {loading ? (
-        <div className="text-center py-12 text-sage-medium font-medium">Loading jobs...</div>
+        <div className="text-center py-12 text-gray-500 text-sm">Loading jobs...</div>
       ) : jobs.length === 0 ? (
         <div className="card p-12 text-center">
-          <p className="text-sage-medium text-lg">No jobs found. Try adjusting your filters.</p>
+          <p className="text-gray-600 text-sm">No jobs found. Try adjusting your filters.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {jobs.map((job) => (
             <JobCard key={job._id} job={job} />
           ))}

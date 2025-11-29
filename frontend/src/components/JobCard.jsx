@@ -3,50 +3,50 @@ import { format } from 'date-fns';
 
 export default function JobCard({ job }) {
   const categoryColors = {
-    cleaning: 'bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 border border-blue-300',
-    cooking: 'bg-gradient-to-r from-green-100 to-green-200 text-green-800 border border-green-300',
-    tutoring: 'bg-gradient-to-r from-purple-100 to-purple-200 text-purple-800 border border-purple-300'
+    cleaning: 'bg-blue-50 text-blue-700',
+    cooking: 'bg-green-50 text-green-700',
+    tutoring: 'bg-purple-50 text-purple-700'
   };
 
   return (
     <Link
       to={`/jobs/${job._id}`}
-      className="block card p-6 group"
+      className="block card p-4 group"
     >
-      <div className="flex justify-between items-start mb-4">
-        <h3 className="text-xl font-bold text-sage-dark group-hover:text-sage-medium transition-colors duration-200">{job.title}</h3>
-        <span className={`px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide ${categoryColors[job.category]}`}>
+      <div className="flex justify-between items-start mb-3">
+        <h3 className="text-base font-semibold text-gray-900 group-hover:text-sage-dark transition-colors flex-1 pr-2">{job.title}</h3>
+        <span className={`px-2 py-1 rounded text-xs font-semibold uppercase tracking-wide flex-shrink-0 ${categoryColors[job.category]}`}>
           {job.category}
         </span>
       </div>
-      <p className="text-sage-medium mb-5 line-clamp-2 leading-relaxed">{job.description}</p>
-      <div className="flex flex-wrap gap-4 text-sm text-sage-dark mb-4">
-        <span className="flex items-center gap-1.5">
-          <span className="text-sage-medium">📍</span> {job.location.city}
+      <p className="text-sm text-gray-600 mb-3 line-clamp-2 leading-relaxed">{job.description}</p>
+      <div className="flex flex-wrap gap-3 text-xs text-gray-500 mb-3">
+        <span className="flex items-center gap-1">
+          <span>📍</span> {job.location.city}
         </span>
         {job.distance !== null && job.distance !== undefined && (
-          <span className="flex items-center gap-1.5">
-            <span className="text-sage-medium">📏</span> {job.distance.toFixed(1)} km
+          <span className="flex items-center gap-1">
+            <span>📏</span> {job.distance.toFixed(1)} km
           </span>
         )}
-        <span className="flex items-center gap-1.5">
-          <span className="text-sage-medium">📅</span> {format(new Date(job.date), 'MMM dd, yyyy')}
+        <span className="flex items-center gap-1">
+          <span>📅</span> {format(new Date(job.date), 'MMM dd')}
         </span>
-        <span className="flex items-center gap-1.5">
-          <span className="text-sage-medium">⏰</span> {job.startTime}
+        <span className="flex items-center gap-1">
+          <span>⏰</span> {job.startTime}
         </span>
-        <span className="flex items-center gap-1.5">
-          <span className="text-sage-medium">⏱️</span> {job.durationHours} hrs
+        <span className="flex items-center gap-1">
+          <span>⏱️</span> {job.durationHours}h
         </span>
       </div>
       {job.requesterId?.rating && (
-        <div className="mt-4 pt-4 border-t border-sage-light flex items-center gap-2">
-          <span className="text-yellow-500 text-lg">⭐</span>
-          <span className="text-sage-dark font-semibold">
+        <div className="pt-3 border-t border-gray-100 flex items-center gap-2">
+          <span className="text-yellow-500 text-sm">⭐</span>
+          <span className="text-sm font-semibold text-gray-900">
             {job.requesterId.rating.avg.toFixed(1)}
           </span>
-          <span className="text-sage-medium text-sm">
-            ({job.requesterId.rating.count} reviews)
+          <span className="text-xs text-gray-500">
+            ({job.requesterId.rating.count})
           </span>
         </div>
       )}

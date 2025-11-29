@@ -84,39 +84,39 @@ export default function JobDetail() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <Link to="/browse" className="text-primary-600 hover:text-primary-700 mb-4 inline-block">
+    <div className="container mx-auto px-6 py-8 bg-gray-50 min-h-screen">
+      <Link to="/browse" className="text-sm text-gray-600 hover:text-gray-900 mb-4 inline-block">
         ← Back to Browse
       </Link>
 
-      <div className="bg-white rounded-lg shadow-md p-8 mb-6">
+      <div className="card mb-6">
         <div className="flex justify-between items-start mb-4">
-          <h1 className="text-3xl font-bold">{job.title}</h1>
-          <span className={`px-4 py-2 rounded-full font-medium ${categoryColors[job.category]}`}>
+          <h1 className="text-2xl font-semibold text-gray-900">{job.title}</h1>
+          <span className={`px-2 py-1 rounded text-xs font-semibold uppercase ${categoryColors[job.category]}`}>
             {job.category}
           </span>
         </div>
 
-        <p className="text-gray-700 mb-6">{job.description}</p>
+        <p className="text-sm text-gray-600 mb-6 leading-relaxed">{job.description}</p>
 
-        <div className="grid md:grid-cols-2 gap-4 mb-6">
-          <div>
-            <strong>Date:</strong> {format(new Date(job.date), 'MMM dd, yyyy')}
+        <div className="grid md:grid-cols-2 gap-3 mb-6 text-sm">
+          <div className="text-gray-600">
+            <strong className="text-gray-900">Date:</strong> {format(new Date(job.date), 'MMM dd, yyyy')}
           </div>
-          <div>
-            <strong>Time:</strong> {job.startTime}
+          <div className="text-gray-600">
+            <strong className="text-gray-900">Time:</strong> {job.startTime}
           </div>
-          <div>
-            <strong>Duration:</strong> {job.durationHours} hours
+          <div className="text-gray-600">
+            <strong className="text-gray-900">Duration:</strong> {job.durationHours} hours
           </div>
-          <div>
-            <strong>Location:</strong> {job.location.city}
+          <div className="text-gray-600">
+            <strong className="text-gray-900">Location:</strong> {job.location.city}
           </div>
-          <div>
-            <strong>Status:</strong> <span className="capitalize">{job.status}</span>
+          <div className="text-gray-600">
+            <strong className="text-gray-900">Status:</strong> <span className="capitalize">{job.status}</span>
           </div>
-          <div>
-            <strong>Posted by:</strong> {job.requesterId?.name}
+          <div className="text-gray-600">
+            <strong className="text-gray-900">Posted by:</strong> {job.requesterId?.name}
           </div>
         </div>
 
@@ -125,16 +125,16 @@ export default function JobDetail() {
             {!showOfferForm ? (
               <button
                 onClick={() => setShowOfferForm(true)}
-                className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700"
+                className="btn-primary"
               >
                 Make an Offer
               </button>
             ) : (
-              <form onSubmit={handleMakeOffer} className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Make an Offer</h3>
+              <form onSubmit={handleMakeOffer} className="card mt-4">
+                <h3 className="text-lg font-semibold mb-4 text-gray-900">Make an Offer</h3>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium mb-1">Hourly Rate ($)</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">Hourly Rate ($)</label>
                     <input
                       type="number"
                       required
@@ -142,11 +142,11 @@ export default function JobDetail() {
                       step="0.01"
                       value={offerData.hourlyRate}
                       onChange={(e) => setOfferData({ ...offerData, hourlyRate: e.target.value })}
-                      className="w-full px-3 py-2 border rounded-md"
+                      className="input-field"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Message</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">Message</label>
                     <textarea
                       required
                       value={offerData.message}

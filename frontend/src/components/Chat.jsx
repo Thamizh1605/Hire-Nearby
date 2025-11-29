@@ -107,18 +107,18 @@ export default function Chat({ bookingId }) {
   };
 
   return (
-    <div className="flex flex-col h-96 card">
-      <div className="flex-1 overflow-y-auto p-4 space-y-3">
+    <div className="flex flex-col h-96 card p-0">
+      <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50">
         {messages.map((message) => (
           <div
             key={message._id}
             className={`flex ${message.senderId._id === user.id ? 'justify-end' : 'justify-start'}`}
           >
             <div
-              className={`max-w-xs lg:max-w-md px-4 py-3 rounded-xl shadow-soft ${
+              className={`max-w-xs lg:max-w-md px-3 py-2 rounded-lg ${
                 message.senderId._id === user.id
-                  ? 'bg-gradient-to-r from-sage-medium to-sage-dark text-white'
-                  : 'bg-cream-light text-sage-dark border border-sage-light'
+                  ? 'bg-sage-medium text-white'
+                  : 'bg-white text-gray-900 border border-gray-200'
               }`}
             >
               <div className="text-sm font-semibold mb-1">
@@ -133,14 +133,14 @@ export default function Chat({ bookingId }) {
           </div>
         ))}
         {typing && typingUser && (
-          <div className="text-sm text-sage-medium italic">
+          <div className="text-xs text-gray-500 italic">
             {typingUser} is typing...
           </div>
         )}
         <div ref={messagesEndRef} />
       </div>
-      <form onSubmit={sendMessage} className="border-t border-sage-light p-4 bg-cream-light/50">
-        <div className="flex gap-3">
+      <form onSubmit={sendMessage} className="border-t border-gray-200 p-3 bg-white">
+        <div className="flex gap-2">
           <input
             type="text"
             value={newMessage}
@@ -149,11 +149,11 @@ export default function Chat({ bookingId }) {
               handleTyping();
             }}
             placeholder="Type a message..."
-            className="flex-1 input-field"
+            className="flex-1 input-field text-sm"
           />
           <button
             type="submit"
-            className="btn-primary"
+            className="btn-primary text-sm"
           >
             Send
           </button>
